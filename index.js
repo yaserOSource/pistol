@@ -54,7 +54,7 @@ export default () => {
   let subApps = [null, null];
   (async () => {
     {
-      let u2 = `https://yaserosource.github.io/pixelsplosion/`;
+      let u2 = `https://webaverse.github.io/pixelsplosion/`;
       if (/^https?:/.test(u2)) {
         u2 = '/@proxy/' + u2;
       }
