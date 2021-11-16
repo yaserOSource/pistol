@@ -7,7 +7,7 @@ const baseUrl = import.meta.url.replace(/(\/)[^\/\\]*$/, '$1');
 const localVector = new THREE.Vector3();
 const upVector = new THREE.Vector3(0, 1, 0);
 const z180Quaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI);
-const muzzleOffset = new THREE.Vector3(0, 0.2, 0.25);
+const muzzleOffset = new THREE.Vector3(0, 0.5, 0.25);
 const muzzleFlashTime = 300;
 const bulletSparkTime = 300;
 
