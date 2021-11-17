@@ -70,7 +70,7 @@ export default () => {
     }
     
     {
-      let u2 = `${baseUrl}pistol.glb`;
+      let u2 = `${baseUrl}military.glb`;
       if (/^https?:/.test(u2)) {
         u2 = '/@proxy/' + u2;
       }
@@ -151,7 +151,7 @@ export default () => {
         
         // bullet hit
         {
-          const result = physics.raycast(gunApp.position + new THREE.Vector3(0,0.5,0), gunApp.quaternion);
+          const result = physics.raycast(gunApp.position.add(new THREE.Vector3(0,0.5,0)), gunApp.quaternion);
           arrow = new THREE.ArrowHelper( gunApp.quaternion, gunApp.position, 100, Math.random() * 0xffffff );
           scene.remove ( arrow );
           
