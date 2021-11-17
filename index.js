@@ -20,16 +20,7 @@ export default () => {
 
   const physics = usePhysics();
   const scene = useScene();
-  
-  /* const _updateSubAppMatrix = subApp => {
-    subApp.updateMatrixWorld();
-    app.position.copy(subApp.position);
-    app.quaternion.copy(subApp.quaternion);
-    app.scale.copy(subApp.scale);
-    app.matrix.copy(subApp.matrix);
-    app.matrixWorld.copy(subApp.matrixWorld);
-  }; */
-  
+  let arrow;
   let pointLights = [];
   const gunPointLight = new THREE.PointLight(0xFFFFFF, 5);
   gunPointLight.castShadow = false; 
@@ -161,6 +152,10 @@ export default () => {
         // bullet hit
         {
           const result = physics.raycast(gunApp.position, gunApp.quaternion.clone().multiply(z180Quaternion));
+          arrow = new THREE.ArrowHelper( gunApp.quaternion.clone().multiply(z180Quaternion), gunApp.position, 100, Math.random() * 0xffffff );
+          scene.remove ( arrow );
+          
+          scene.add( arrow );
           if (result) {
             explosionApp.position.fromArray(result.point);
             const normal = new THREE.Vector3().fromArray(result.normal);
