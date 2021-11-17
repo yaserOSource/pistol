@@ -151,8 +151,8 @@ export default () => {
         
         // bullet hit
         {
-          const result = physics.raycast(gunApp.position, gunApp.quaternion.clone().multiply(z180Quaternion));
-          arrow = new THREE.ArrowHelper( gunApp.quaternion.clone().multiply(z180Quaternion), gunApp.position, 100, Math.random() * 0xffffff );
+          const result = physics.raycast(gunApp.position + new THREE.Vector3(0,0.5,0), gunApp.quaternion);
+          arrow = new THREE.ArrowHelper( gunApp.quaternion, gunApp.position, 100, Math.random() * 0xffffff );
           scene.remove ( arrow );
           
           scene.add( arrow );
