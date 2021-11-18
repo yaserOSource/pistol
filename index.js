@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import metaversefile from 'metaversefile';
+import { Euler, Vector3 } from 'three';
 const {useApp, useFrame, useActivate, useWear, useUse, useLocalPlayer, usePhysics, useScene, getNextInstanceId, getAppByPhysicsId, useWorld, useDefaultModules, useCleanup} = metaversefile;
 
 const baseUrl = import.meta.url.replace(/(\/)[^\/\\]*$/, '$1');
@@ -152,7 +153,10 @@ export default () => {
         // bullet hit
         {
           const result = physics.raycast(gunApp.position, gunApp.quaternion.clone().multiply(z180Quaternion));
-          arrow = new THREE.ArrowHelper( gunApp.quaternion.clone().multiply(z180Quaternion), gunApp.position, 100, Math.random() * 0xffffff );
+          let quat = gunApp.quaternion.clone().multiply(z180Quaternion);
+          
+          let locVec = new Euler();
+          arrow = new THREE.ArrowHelper( locVec.setFromQuaternion(quat), gunApp.position, 100, Math.random() * 0xffffff );
           scene.remove ( arrow );
           
           scene.add( arrow );
