@@ -156,7 +156,7 @@ export default () => {
           let quat = gunApp.quaternion.clone().multiply(z180Quaternion);
           
           let locVec = new Euler();
-          arrow = new THREE.ArrowHelper( locVec.setFromQuaternion(quat, 'YXZ'), gunApp.position, 100, Math.random() * 0xffffff );
+          arrow = new THREE.ArrowHelper( locVec.setFromQuaternion(quat, 'ZXY'), gunApp.position, 100, Math.random() * 0xffffff );
           scene.remove ( arrow );
           
           scene.add( arrow );
