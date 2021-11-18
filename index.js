@@ -7,9 +7,9 @@ const baseUrl = import.meta.url.replace(/(\/)[^\/\\]*$/, '$1');
 const localVector = new THREE.Vector3();
 const upVector = new THREE.Vector3(0, 1, 0);
 const z180Quaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI);
-const muzzleOffset = new THREE.Vector3(0, 0.5, 15);
-const muzzleFlashTime = 300;
-const bulletSparkTime = 300;
+const muzzleOffset = new THREE.Vector3(0, 20.5, 15);
+const muzzleFlashTime = 2200;
+const bulletSparkTime = 3200;
 
 const emptyArray = [];
 const fnEmptyArray = () => emptyArray;
