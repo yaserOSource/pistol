@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import metaversefile from 'metaversefile';
+import totum from 'totum';
 import { Euler, Vector3 } from 'three';
-const {useApp, useFrame, useActivate, useWear, useUse, useLocalPlayer, usePhysics, useScene, getNextInstanceId, getAppByPhysicsId, useWorld, useDefaultModules, useCleanup} = metaversefile;
+const {useApp, useFrame, useActivate, useWear, useUse, useLocalPlayer, usePhysics, useScene, getNextInstanceId, getAppByPhysicsId, useWorld, useDefaultModules, useCleanup} = totum;
 
 const baseUrl = import.meta.url.replace(/(\/)[^\/\\]*$/, '$1');
 
@@ -50,9 +50,9 @@ export default () => {
       if (/^https?:/.test(u2)) {
         u2 = '/@proxy/' + u2;
       }
-      const m = await metaversefile.import(u2);
+      const m = await totum.import(u2);
       // console.log('group objects 3', u2, m);
-      explosionApp = metaversefile.createApp({
+      explosionApp = totum.createApp({
         name: u2,
       });
       explosionApp.contentId = u2;
@@ -66,7 +66,7 @@ export default () => {
 
       await explosionApp.addModule(m);
       scene.add(explosionApp);
-      // metaversefile.addApp(explosionApp);
+      // totum.addApp(explosionApp);
       
     }
     
@@ -75,8 +75,8 @@ export default () => {
       if (/^https?:/.test(u2)) {
         u2 = '/@proxy/' + u2;
       }
-      const m = await metaversefile.import(u2);
-      gunApp = metaversefile.createApp({
+      const m = await totum.import(u2);
+      gunApp = totum.createApp({
         name: u2,
       });
       gunApp.position.copy(app.position);
@@ -258,7 +258,7 @@ export default () => {
   useCleanup(() => {
     for (const subApp of subApps) {
       if (subApp) {
-        // metaversefile.removeApp(subApp);
+        // totum.removeApp(subApp);
         scene.remove(subApp);
         subApp.destroy();
       }
